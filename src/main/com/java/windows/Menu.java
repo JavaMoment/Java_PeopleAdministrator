@@ -21,11 +21,25 @@ import java.awt.event.ActionEvent;
 import java.awt.Canvas;
 import java.awt.Label;
 import javax.swing.ImageIcon;
+import javax.swing.JToggleButton;
+import javax.swing.border.BevelBorder;
+import javax.swing.border.CompoundBorder;
+import javax.swing.UIManager;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.util.ArrayList;
 
-public class Menu extends JFrame {
+import main.com.java.buttons.Buttons;
+import main.com.java.labels.Labels;
+import main.com.java.interfaces.Themes;
+import main.com.java.panels.Panels;
+
+public class Menu extends JFrame implements Themes{
 
 	private JPanel contentPane;
-
+	private ArrayList<JLabel> lblArr = new ArrayList<JLabel>();
+	private ArrayList<JButton> btnArr = new ArrayList<JButton>();
+	
 	/**
 	 * Launch the application.
 	 */
@@ -40,6 +54,7 @@ public class Menu extends JFrame {
 				}
 			}
 		});
+		UIManager.LookAndFeelInfo looks[] = UIManager.getInstalledLookAndFeels();
 	}
 
 	/**
@@ -52,112 +67,124 @@ public class Menu extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 622, 429);
 		contentPane = new JPanel();
-		contentPane.setForeground(new Color(0, 0, 0));
+		contentPane.setForeground(darkTheme[0]);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JPanel menuPanel = new JPanel();
-		menuPanel.setBackground(new Color(0, 0, 0));
-		menuPanel.setForeground(new Color(255, 255, 255));
-		menuPanel.setBounds(0, 0, 269, 729);
+		JPanel menuPanel = Panels.menuPanel();
 		contentPane.add(menuPanel);
-		menuPanel.setLayout(null);
 		
-		JButton btnHome = new JButton("Home");
-		btnHome.setHorizontalAlignment(SwingConstants.LEADING);
-		btnHome.setToolTipText("Click here to get Home");
-		btnHome.setBorderPainted(false);
-		btnHome.setOpaque(false);
-		btnHome.setForeground(new Color(255, 255, 255));
-		btnHome.setFont(new Font("Trebuchet MS", Font.BOLD | Font.ITALIC, 21));
-		btnHome.setBackground(new Color(0, 0, 0));
+		JButton btnHome = Buttons.homeButton();
+		menuPanel.add(btnHome);
+		btnArr.add(btnHome);
 		btnHome.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnHome.setBounds(71, 261, 154, 27);
-		menuPanel.add(btnHome);
 		
-		JButton btnAddPerson = new JButton("Add a Person");
-		btnAddPerson.setHorizontalAlignment(SwingConstants.LEADING);
-		btnAddPerson.setToolTipText("Click here to add a Person");
-		btnAddPerson.setOpaque(false);
-		btnAddPerson.setForeground(Color.WHITE);
-		btnAddPerson.setFont(new Font("Trebuchet MS", Font.BOLD | Font.ITALIC, 21));
-		btnAddPerson.setBorderPainted(false);
-		btnAddPerson.setBackground(Color.BLACK);
-		btnAddPerson.setBounds(71, 321, 188, 27);
+		JButton btnAddPerson = Buttons.addPersonButton();
 		menuPanel.add(btnAddPerson);
+		btnArr.add(btnAddPerson);
 		
-		JButton btnShowPeople = new JButton("Show people");
-		btnShowPeople.setHorizontalAlignment(SwingConstants.LEADING);
+		JButton btnShowPeople = Buttons.showPeopleButton();
+		menuPanel.add(btnShowPeople);
+		btnArr.add(btnShowPeople);
 		btnShowPeople.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnShowPeople.setToolTipText("Click here to get a people list");
-		btnShowPeople.setOpaque(false);
-		btnShowPeople.setForeground(Color.WHITE);
-		btnShowPeople.setFont(new Font("Trebuchet MS", Font.BOLD | Font.ITALIC, 21));
-		btnShowPeople.setBorderPainted(false);
-		btnShowPeople.setBackground(Color.BLACK);
-		btnShowPeople.setBounds(71, 381, 188, 27);
-		menuPanel.add(btnShowPeople);
 		
-		JButton btnShowVehicles = new JButton("Show vehicles");
-		btnShowVehicles.setHorizontalAlignment(SwingConstants.LEADING);
-		btnShowVehicles.setToolTipText("Click here to get a vehicles list");
-		btnShowVehicles.setOpaque(false);
-		btnShowVehicles.setForeground(Color.WHITE);
-		btnShowVehicles.setFont(new Font("Trebuchet MS", Font.BOLD | Font.ITALIC, 21));
-		btnShowVehicles.setBorderPainted(false);
-		btnShowVehicles.setBackground(Color.BLACK);
-		btnShowVehicles.setBounds(71, 441, 191, 27);
+		JButton btnShowVehicles = Buttons.showVehiclesButton();
 		menuPanel.add(btnShowVehicles);
+		btnArr.add(btnShowVehicles);
 		
-		JButton btnDashboard = new JButton("Dashboard");
-		btnDashboard.setHorizontalAlignment(SwingConstants.LEADING);
-		btnDashboard.setToolTipText("Click here to get the dashboard");
-		btnDashboard.setOpaque(false);
-		btnDashboard.setForeground(Color.WHITE);
-		btnDashboard.setFont(new Font("Trebuchet MS", Font.BOLD | Font.ITALIC, 21));
-		btnDashboard.setBorderPainted(false);
-		btnDashboard.setBackground(Color.BLACK);
-		btnDashboard.setBounds(71, 503, 202, 27);
+		JButton btnDashboard = Buttons.dashboardButton();
 		menuPanel.add(btnDashboard);
+		btnArr.add(btnDashboard);
 		
-		JLabel homeIcon = new JLabel("");
-		homeIcon.setBounds(43, 232, 40, 78);
-		menuPanel.add(homeIcon);
-		homeIcon.setIcon(new ImageIcon("C:\\PeopleAdministrator\\PeopleAdministrator\\src\\main\\resources\\images\\casa.png"));
+		JLabel homeIco = Labels.homeIcon();
+		menuPanel.add(homeIco);
+				
+		JLabel personIco = Labels.personIcon();
+		menuPanel.add(personIco);
 		
-		JLabel personIcon = new JLabel("");
-		personIcon.setBounds(43, 310, 37, 42);
-		menuPanel.add(personIcon);
-		personIcon.setIcon(new ImageIcon(Menu.class.getResource("/main/resources/images/avatar-de-hombre.png")));
 		
-		JLabel peopleIcon = new JLabel("");
-		peopleIcon.setBounds(43, 371, 39, 47);
-		menuPanel.add(peopleIcon);
-		peopleIcon.setIcon(new ImageIcon(Menu.class.getResource("/main/resources/images/avatares.png")));
+		JLabel peopleIco = Labels.peopleIcon();
+		menuPanel.add(peopleIco);
 		
-		JLabel vehiclesIcon = new JLabel("");
-		vehiclesIcon.setBounds(43, 432, 41, 40);
-		menuPanel.add(vehiclesIcon);
-		vehiclesIcon.setIcon(new ImageIcon(Menu.class.getResource("/main/resources/images/transporte.png")));
+		JLabel vehiclesIco = Labels.vehiclesIcon();
+		menuPanel.add(vehiclesIco);
 		
-		JLabel dashboardIcon = new JLabel("");
-		dashboardIcon.setBounds(43, 496, 37, 38);
-		menuPanel.add(dashboardIcon);
-		dashboardIcon.setIcon(new ImageIcon(Menu.class.getResource("/main/resources/images/sitio-web.png")));
 		
-		JLabel lblVersion = new JLabel("Version 1.0.0");
-		lblVersion.setFont(new Font("Arial Black", Font.PLAIN, 11));
-		lblVersion.setForeground(new Color(255, 255, 255));
-		lblVersion.setBounds(166, 715, 97, 14);
+		JLabel dashboardIco = Labels.dashboardIcon();
+		menuPanel.add(dashboardIco);
+		
+		JLabel lblVersion = Labels.versionLabel();
 		menuPanel.add(lblVersion);
-		ImageIcon imgHome = new ImageIcon("../../../resources/images/casa.png");
+		lblArr.add(lblVersion);
+		
+		JPanel dynamicPanel = Panels.homePanel();
+		contentPane.add(dynamicPanel);
+		
+		JLabel lblNewLabel = new JLabel("New label");
+		lblNewLabel.setBounds(312, 328, 46, 14);
+		contentPane.add(lblNewLabel);
+		
+		JLabel lblNewLabel_1 = new JLabel("New label");
+		lblNewLabel_1.setBounds(312, 374, 46, 14);
+		contentPane.add(lblNewLabel_1);
+		
+		JLabel lblNewLabel_2 = new JLabel("New label");
+		lblNewLabel_2.setBounds(312, 420, 46, 14);
+		contentPane.add(lblNewLabel_2);
+		
+		JLabel lblWelcome = Labels.welcomeLabel();
+		dynamicPanel.add(lblWelcome);
+		lblArr.add(lblWelcome);
+		
+		JLabel lblPeopleCount = Labels.peopleCountLabel();
+		dynamicPanel.add(lblPeopleCount);
+		lblArr.add(lblPeopleCount);
+		
+		JLabel lblVehiclesCount = Labels.vehiclesCountLabel();
+		dynamicPanel.add(lblVehiclesCount);
+		lblArr.add(lblVehiclesCount);
+		
+		JLabel peopCountIcon = Labels.peopleCountIcon();
+		dynamicPanel.add(peopCountIcon);
+		
+		JLabel vehiCountIcon = Labels.vehiCountIcon();
+		dynamicPanel.add(vehiCountIcon);
+		
+		JLabel lblPCount = Labels.PCount();
+		dynamicPanel.add(lblPCount);
+		lblArr.add(lblPCount);
+		
+		JLabel lblVCount = Labels.VCount();
+		dynamicPanel.add(lblVCount);
+		lblArr.add(lblVCount);
+		
+		JToggleButton tglbtnTheme = Buttons.themeButton();
+		dynamicPanel.add(tglbtnTheme);
+		tglbtnTheme.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e) {
+				if(tglbtnTheme.isSelected()) {
+					menuPanel.setBackground(lightTheme[0]);
+					dynamicPanel.setBackground(lightTheme[1]);
+					tglbtnTheme.setText("Dark Theme");
+					for(JLabel lbl : lblArr) {lbl.setForeground(Color.BLACK);}
+					for(JButton btn : btnArr) {btn.setForeground(Color.BLACK);}
+				} else {
+					menuPanel.setBackground(darkTheme[0]);
+					dynamicPanel.setBackground(darkTheme[1]);
+					tglbtnTheme.setText("Light Theme");
+					tglbtnTheme.setBackground(Color.WHITE);
+					for(JButton btn : btnArr) {btn.setForeground(Color.WHITE);}
+					for(JLabel lbl : lblArr) {lbl.setForeground(Color.WHITE);}
+				}
+			}
+		});
 	}
 }
