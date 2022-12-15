@@ -54,7 +54,6 @@ public class Menu extends JFrame implements Themes{
 				}
 			}
 		});
-		UIManager.LookAndFeelInfo looks[] = UIManager.getInstalledLookAndFeels();
 	}
 
 	/**
@@ -104,41 +103,12 @@ public class Menu extends JFrame implements Themes{
 		menuPanel.add(btnDashboard);
 		btnArr.add(btnDashboard);
 		
-		JLabel homeIco = Labels.homeIcon();
-		menuPanel.add(homeIco);
-				
-		JLabel personIco = Labels.personIcon();
-		menuPanel.add(personIco);
-		
-		
-		JLabel peopleIco = Labels.peopleIcon();
-		menuPanel.add(peopleIco);
-		
-		JLabel vehiclesIco = Labels.vehiclesIcon();
-		menuPanel.add(vehiclesIco);
-		
-		
-		JLabel dashboardIco = Labels.dashboardIcon();
-		menuPanel.add(dashboardIco);
-		
 		JLabel lblVersion = Labels.versionLabel();
 		menuPanel.add(lblVersion);
 		lblArr.add(lblVersion);
 		
 		JPanel dynamicPanel = Panels.homePanel();
 		contentPane.add(dynamicPanel);
-		
-		JLabel lblNewLabel = new JLabel("New label");
-		lblNewLabel.setBounds(312, 328, 46, 14);
-		contentPane.add(lblNewLabel);
-		
-		JLabel lblNewLabel_1 = new JLabel("New label");
-		lblNewLabel_1.setBounds(312, 374, 46, 14);
-		contentPane.add(lblNewLabel_1);
-		
-		JLabel lblNewLabel_2 = new JLabel("New label");
-		lblNewLabel_2.setBounds(312, 420, 46, 14);
-		contentPane.add(lblNewLabel_2);
 		
 		JLabel lblWelcome = Labels.welcomeLabel();
 		dynamicPanel.add(lblWelcome);
@@ -151,18 +121,12 @@ public class Menu extends JFrame implements Themes{
 		JLabel lblVehiclesCount = Labels.vehiclesCountLabel();
 		dynamicPanel.add(lblVehiclesCount);
 		lblArr.add(lblVehiclesCount);
-		
-		JLabel peopCountIcon = Labels.peopleCountIcon();
-		dynamicPanel.add(peopCountIcon);
-		
-		JLabel vehiCountIcon = Labels.vehiCountIcon();
-		dynamicPanel.add(vehiCountIcon);
-		
-		JLabel lblPCount = Labels.PCount();
+
+		JLabel lblPCount = Labels.peopleCount();
 		dynamicPanel.add(lblPCount);
 		lblArr.add(lblPCount);
 		
-		JLabel lblVCount = Labels.VCount();
+		JLabel lblVCount = Labels.vehiCount();
 		dynamicPanel.add(lblVCount);
 		lblArr.add(lblVCount);
 		
