@@ -48,4 +48,11 @@ public class Panels implements Themes {
 
 		return homePane;
 	}	
+	
+	public static JPanel dashboardPanel() {
+	
+		JPanel dashboardPane = new JPanel ();
+		return dashboardPane;
+	
+	}
 }
