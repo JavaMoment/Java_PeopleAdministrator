@@ -33,12 +33,11 @@ import main.com.java.buttons.Buttons;
 import main.com.java.labels.Labels;
 import main.com.java.interfaces.Themes;
 import main.com.java.panels.Panels;
+import main.resources.images.data.Data;
 
 public class Menu extends JFrame implements Themes{
 
 	private JPanel contentPane;
-	private ArrayList<JLabel> lblArr = new ArrayList<JLabel>();
-	private ArrayList<JButton> btnArr = new ArrayList<JButton>();
 	
 	/**
 	 * Launch the application.
@@ -77,7 +76,7 @@ public class Menu extends JFrame implements Themes{
 		
 		JButton btnHome = Buttons.homeButton();
 		menuPanel.add(btnHome);
-		btnArr.add(btnHome);
+		Data.btnArr.add(btnHome);
 		btnHome.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
@@ -85,11 +84,11 @@ public class Menu extends JFrame implements Themes{
 		
 		JButton btnAddPerson = Buttons.addPersonButton();
 		menuPanel.add(btnAddPerson);
-		btnArr.add(btnAddPerson);
+		Data.btnArr.add(btnAddPerson);
 		
 		JButton btnShowPeople = Buttons.showPeopleButton();
 		menuPanel.add(btnShowPeople);
-		btnArr.add(btnShowPeople);
+		Data.btnArr.add(btnShowPeople);
 		btnShowPeople.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
@@ -97,39 +96,19 @@ public class Menu extends JFrame implements Themes{
 		
 		JButton btnShowVehicles = Buttons.showVehiclesButton();
 		menuPanel.add(btnShowVehicles);
-		btnArr.add(btnShowVehicles);
+		Data.btnArr.add(btnShowVehicles);
 		
 		JButton btnDashboard = Buttons.dashboardButton();
 		menuPanel.add(btnDashboard);
-		btnArr.add(btnDashboard);
+		Data.btnArr.add(btnDashboard);
 		
 		JLabel lblVersion = Labels.versionLabel();
 		menuPanel.add(lblVersion);
-		lblArr.add(lblVersion);
+		Data.lblArr.add(lblVersion);
 		
 		JPanel dynamicPanel = Panels.homePanel();
 		contentPane.add(dynamicPanel);
-		
-		JLabel lblWelcome = Labels.welcomeLabel();
-		dynamicPanel.add(lblWelcome);
-		lblArr.add(lblWelcome);
-		
-		JLabel lblPeopleCount = Labels.peopleCountLabel();
-		dynamicPanel.add(lblPeopleCount);
-		lblArr.add(lblPeopleCount);
-		
-		JLabel lblVehiclesCount = Labels.vehiclesCountLabel();
-		dynamicPanel.add(lblVehiclesCount);
-		lblArr.add(lblVehiclesCount);
-
-		JLabel lblPCount = Labels.peopleCount();
-		dynamicPanel.add(lblPCount);
-		lblArr.add(lblPCount);
-		
-		JLabel lblVCount = Labels.vehiCount();
-		dynamicPanel.add(lblVCount);
-		lblArr.add(lblVCount);
-		
+				
 		JToggleButton tglbtnTheme = Buttons.themeButton();
 		dynamicPanel.add(tglbtnTheme);
 		tglbtnTheme.addActionListener(new ActionListener(){
@@ -138,15 +117,15 @@ public class Menu extends JFrame implements Themes{
 					menuPanel.setBackground(lightTheme[0]);
 					dynamicPanel.setBackground(lightTheme[1]);
 					tglbtnTheme.setText("Dark Theme");
-					for(JLabel lbl : lblArr) {lbl.setForeground(Color.BLACK);}
-					for(JButton btn : btnArr) {btn.setForeground(Color.BLACK);}
+					for(JLabel lbl : Data.lblArr) {lbl.setForeground(darkTheme[0]);}
+					for(JButton btn : Data.btnArr) {btn.setForeground(darkTheme[0]);}
 				} else {
 					menuPanel.setBackground(darkTheme[0]);
 					dynamicPanel.setBackground(darkTheme[1]);
 					tglbtnTheme.setText("Light Theme");
 					tglbtnTheme.setBackground(Color.WHITE);
-					for(JButton btn : btnArr) {btn.setForeground(Color.WHITE);}
-					for(JLabel lbl : lblArr) {lbl.setForeground(Color.WHITE);}
+					for(JButton btn : Data.btnArr) {btn.setForeground(lightTheme[1]);}
+					for(JLabel lbl : Data.lblArr) {lbl.setForeground(lightTheme[1]);}
 				}
 			}
 		});
