@@ -1,4 +1,4 @@
-package main.resources.images.data;
+package main.resources.data;
 
 import java.util.ArrayList;
 
