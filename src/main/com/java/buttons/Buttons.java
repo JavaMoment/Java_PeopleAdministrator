@@ -9,9 +9,10 @@ import javax.swing.JToggleButton;
 import javax.swing.SwingConstants;
 import javax.swing.border.CompoundBorder;
 
+import main.com.java.interfaces.Themes;
 import main.com.java.windows.Menu;
 
-public class Buttons {
+public class Buttons implements Themes {
 	/*
 	 * This class will contain all the buttons used by the frames and the panels
 	 **/
@@ -86,9 +87,11 @@ public class Buttons {
 	}
 	
 	public static JToggleButton themeButton() {
-		JToggleButton tglbtnTheme = new JToggleButton("Dark Theme");
+		JToggleButton tglbtnTheme = new JToggleButton("Light Theme");
 		tglbtnTheme.setOpaque(true);
-		tglbtnTheme.setBackground(new Color(128, 128, 128));
+		tglbtnTheme.setText("Light Theme");
+		tglbtnTheme.setBackground(Color.WHITE);
+		//tglbtnTheme.setBackground(new Color(128, 128, 128));
 		tglbtnTheme.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		tglbtnTheme.setForeground(new Color(0, 0, 0));
 		tglbtnTheme.setBorder(new CompoundBorder());

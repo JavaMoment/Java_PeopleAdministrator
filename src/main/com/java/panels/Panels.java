@@ -4,10 +4,12 @@ import java.awt.Color;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTable;
 
 import main.com.java.interfaces.Themes;
 import main.com.java.labels.Labels;
-import main.resources.images.data.Data;
+import main.com.java.tables.Tables;
+import main.resources.data.Data;
 
 public class Panels implements Themes {
 	
@@ -47,5 +49,17 @@ public class Panels implements Themes {
 		Data.lblArr.add(lblVCount);
 
 		return homePane;
-	}	
+	}
+	
+	public static JPanel showPeoplePanel() {
+		JPanel showPeopPane = new JPanel();
+		showPeopPane.setBackground(darkTheme[1]);
+		showPeopPane.setBounds(269, 0, 739, 729);
+		showPeopPane.setLayout(null);
+		
+		JTable tablePeople = Tables.showPeopTable();
+		showPeopPane.add(tablePeople);
+		
+		return showPeopPane;
+	}
 }
