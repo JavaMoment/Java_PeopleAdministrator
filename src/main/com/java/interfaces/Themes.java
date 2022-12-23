@@ -2,10 +2,17 @@ package main.com.java.interfaces;
 
 import java.awt.Color;
 
-public interface Themes {
+import javax.swing.LookAndFeel;
 
-	public static final Color[] darkTheme = {new Color(0, 0, 0), new Color(18, 18, 18)};
+import com.jtattoo.plaf.hifi.HiFiLookAndFeel;
+import com.jtattoo.plaf.mint.MintLookAndFeel;
+import com.jtattoo.plaf.noire.NoireLookAndFeel;
+
+public interface Themes {
+	/* This interface contains the Look and Feel themes used by the program */
 	
-	public static final Color[] lightTheme = {new Color(128, 255, 255), new Color(255, 255, 255)};
+	public static final LookAndFeel hiFiTheme = new HiFiLookAndFeel();
+	
+	public static final LookAndFeel mintTheme = new MintLookAndFeel();
 	
 }

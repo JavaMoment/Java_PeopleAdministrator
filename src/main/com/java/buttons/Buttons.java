@@ -11,6 +11,7 @@ import javax.swing.border.CompoundBorder;
 
 import main.com.java.interfaces.Themes;
 import main.com.java.windows.Menu;
+import main.resources.data.Data;
 
 public class Buttons implements Themes {
 	/*
@@ -22,10 +23,8 @@ public class Buttons implements Themes {
 		btnShowVehicles.setHorizontalAlignment(SwingConstants.LEADING);
 		btnShowVehicles.setToolTipText("Click here to get a vehicles list");
 		btnShowVehicles.setOpaque(false);
-		btnShowVehicles.setForeground(Color.WHITE);
 		btnShowVehicles.setFont(new Font("Trebuchet MS", Font.BOLD | Font.ITALIC, 21));
 		btnShowVehicles.setBorderPainted(false);
-		btnShowVehicles.setBackground(Color.BLACK);
 		btnShowVehicles.setBounds(45, 441, 230, 35);
 		return btnShowVehicles;
 	}
@@ -36,10 +35,8 @@ public class Buttons implements Themes {
 		btnShowPeople.setHorizontalAlignment(SwingConstants.LEADING);
 		btnShowPeople.setToolTipText("Click here to get a people list");
 		btnShowPeople.setOpaque(false);
-		btnShowPeople.setForeground(Color.WHITE);
 		btnShowPeople.setFont(new Font("Trebuchet MS", Font.BOLD | Font.ITALIC, 21));
 		btnShowPeople.setBorderPainted(false);
-		btnShowPeople.setBackground(Color.BLACK);
 		btnShowPeople.setBounds(45, 381, 230, 35);
 		return btnShowPeople;
 	}
@@ -50,10 +47,8 @@ public class Buttons implements Themes {
 		btnAddPerson.setHorizontalAlignment(SwingConstants.LEADING);
 		btnAddPerson.setToolTipText("Click here to add a Person");
 		btnAddPerson.setOpaque(false);
-		btnAddPerson.setForeground(Color.WHITE);
 		btnAddPerson.setFont(new Font("Trebuchet MS", Font.BOLD | Font.ITALIC, 21));
 		btnAddPerson.setBorderPainted(false);
-		btnAddPerson.setBackground(Color.BLACK);
 		btnAddPerson.setBounds(45, 321, 230, 35);
 		return btnAddPerson;
 	}
@@ -64,10 +59,8 @@ public class Buttons implements Themes {
 		btnDashboard.setHorizontalAlignment(SwingConstants.LEADING);
 		btnDashboard.setToolTipText("Click here to get the dashboard");
 		btnDashboard.setOpaque(false);
-		btnDashboard.setForeground(Color.WHITE);
 		btnDashboard.setFont(new Font("Trebuchet MS", Font.BOLD | Font.ITALIC, 21));
 		btnDashboard.setBorderPainted(false);
-		btnDashboard.setBackground(Color.BLACK);
 		btnDashboard.setBounds(45, 503, 230, 35);
 		return btnDashboard;
 	}
@@ -79,9 +72,7 @@ public class Buttons implements Themes {
 		btnHome.setToolTipText("Click here to get Home");
 		btnHome.setBorderPainted(false);
 		btnHome.setOpaque(false);
-		btnHome.setForeground(new Color(255, 255, 255));
 		btnHome.setFont(new Font("Trebuchet MS", Font.BOLD | Font.ITALIC, 21));
-		btnHome.setBackground(new Color(0, 0, 0));
 		btnHome.setBounds(45, 261, 230, 35);
 		return btnHome;
 	}
@@ -89,14 +80,54 @@ public class Buttons implements Themes {
 	public static JToggleButton themeButton() {
 		JToggleButton tglbtnTheme = new JToggleButton("Light Theme");
 		tglbtnTheme.setOpaque(true);
-		tglbtnTheme.setText("Light Theme");
-		tglbtnTheme.setBackground(Color.WHITE);
-		//tglbtnTheme.setBackground(new Color(128, 128, 128));
+		//tglbtnTheme.setText("Light Theme");
 		tglbtnTheme.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		tglbtnTheme.setForeground(new Color(0, 0, 0));
 		tglbtnTheme.setBorder(new CompoundBorder());
 		tglbtnTheme.setBounds(635, 11, 94, 23);
+		tglbtnTheme.setSelected(true);
 		return tglbtnTheme;
+	}
+	
+	public static JButton refreshButton() {
+		JButton btnRefresh = new JButton();
+		btnRefresh.setIcon(new ImageIcon("C:\\PeopleAdministrator\\PeopleAdministrator\\src\\main\\resources\\images\\refresh.png"));
+		btnRefresh.setToolTipText("Click here to refresh the table");
+		btnRefresh.setBounds(560, 11, 45, 40);
+		btnRefresh.setOpaque(false);
+		btnRefresh.setBorderPainted(false);
+		btnRefresh.setHorizontalAlignment(SwingConstants.LEADING);
+		return btnRefresh;
+	}
+	
+	public static JButton orderByAscButton() {
+		JButton btnOrderByAscID = new JButton();
+		btnOrderByAscID.setIcon(new ImageIcon("C:\\PeopleAdministrator\\PeopleAdministrator\\src\\main\\resources\\images\\sort-ascending.png"));
+		btnOrderByAscID.setBounds(460, 11, 45, 40);
+		btnOrderByAscID.setOpaque(false);
+		btnOrderByAscID.setBorderPainted(false);
+		btnOrderByAscID.setHorizontalAlignment(SwingConstants.LEFT);
+		return btnOrderByAscID;
+	}
+	
+	public static JButton orderByDescButton() {
+		JButton btnOrderByDescID = new JButton();
+		btnOrderByDescID.setIcon(new ImageIcon("C:\\PeopleAdministrator\\PeopleAdministrator\\src\\main\\resources\\images\\sort-descending.png"));
+		btnOrderByDescID.setBounds(510, 11, 45, 40);
+		btnOrderByDescID.setOpaque(false);
+		btnOrderByDescID.setBorderPainted(false);
+		btnOrderByDescID.setHorizontalAlignment(SwingConstants.LEFT);
+		return btnOrderByDescID;
+	}
+	
+	public static JButton searchButton() {
+		JButton btnSearch = new JButton();
+		btnSearch.setIcon(new ImageIcon("C:\\PeopleAdministrator\\PeopleAdministrator\\src\\main\\resources\\images\\search.png"));
+		btnSearch.setToolTipText("Click here to search by name");
+		btnSearch.setBounds(210, 11, 45, 40);
+		btnSearch.setOpaque(false);
+		btnSearch.setBorderPainted(false);
+		btnSearch.setHorizontalAlignment(SwingConstants.LEADING);
+		return btnSearch;
 	}
 
 }
