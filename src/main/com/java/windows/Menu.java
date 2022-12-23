@@ -1,33 +1,25 @@
 package main.com.java.windows;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import java.awt.Dimension;
-import java.awt.Color;
 import javax.swing.JLabel;
-import javax.swing.SwingConstants;
-import java.awt.Font;
-import java.awt.Image;
-import java.awt.Component;
-import java.awt.Panel;
-import javax.swing.JTextPane;
+import javax.swing.SwingUtilities;
+
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import java.awt.Canvas;
-import java.awt.Label;
-import javax.swing.ImageIcon;
 import javax.swing.JToggleButton;
-import javax.swing.border.BevelBorder;
-import javax.swing.border.CompoundBorder;
 import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
+
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import main.com.java.buttons.Buttons;
 import main.com.java.labels.Labels;
@@ -36,8 +28,7 @@ import main.com.java.panels.HomePanel;
 import main.com.java.panels.MenuPanel;
 import main.com.java.panels.ShowPeoplePanel;
 import main.resources.data.Data;
-import javax.swing.JTable;
-import javax.swing.table.DefaultTableModel;
+
 
 public class Menu extends JFrame implements Themes{
 
@@ -47,6 +38,7 @@ public class Menu extends JFrame implements Themes{
 	private HomePanel homePanel;
 	private ShowPeoplePanel showPeopPanel;
 	private JToggleButton tglbtnTheme = Buttons.themeButton();
+	private static Menu frame;
 	
 	/**
 	 * Launch the application.
@@ -55,11 +47,16 @@ public class Menu extends JFrame implements Themes{
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Menu frame = new Menu();
+					UIManager.setLookAndFeel(hiFiTheme);
+					
+					frame = new Menu();
 					frame.setVisible(true);
+					
+				} catch (UnsupportedLookAndFeelException ex) {
+					Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
 				} catch (Exception e) {
 					e.printStackTrace();
-				}
+				} 
 			}
 		});
 	}
@@ -74,22 +71,22 @@ public class Menu extends JFrame implements Themes{
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 622, 429);
 		contentPane = new JPanel();
-		contentPane.setForeground(darkTheme[0]);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
+		/* Creation of the panels used by the program */
 		menuPanel = new MenuPanel();
 		homePanel = new HomePanel();
 		showPeopPanel = new ShowPeoplePanel();
 
+		/* Starting the home panel as the initial panel */
 		dynamicPanel = homePanel;
 		dynamicPanel.add(tglbtnTheme);
 		
 		JButton btnHome = Buttons.homeButton();
 		menuPanel.add(btnHome);
-		Data.btnArr.add(btnHome);
 		btnHome.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				changePanel(homePanel);
@@ -98,11 +95,9 @@ public class Menu extends JFrame implements Themes{
 		
 		JButton btnAddPerson = Buttons.addPersonButton();
 		menuPanel.add(btnAddPerson);
-		Data.btnArr.add(btnAddPerson);
 		
 		JButton btnShowPeople = Buttons.showPeopleButton();
 		menuPanel.add(btnShowPeople);
-		Data.btnArr.add(btnShowPeople);
 		btnShowPeople.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				changePanel(showPeopPanel);
@@ -111,19 +106,17 @@ public class Menu extends JFrame implements Themes{
 		
 		JButton btnShowVehicles = Buttons.showVehiclesButton();
 		menuPanel.add(btnShowVehicles);
-		Data.btnArr.add(btnShowVehicles);
 		
 		JButton btnDashboard = Buttons.dashboardButton();
 		menuPanel.add(btnDashboard);
-		Data.btnArr.add(btnDashboard);
 		
 		JLabel lblVersion = Labels.versionLabel();
 		menuPanel.add(lblVersion);
-		Data.lblArr.add(lblVersion);
 
 				
 		tglbtnTheme.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
+				/* Logic for the selection of program themes between light and dark depending on the tglbtnTheme */
 				if(tglbtnTheme.isSelected()) {
 					changeToDarkTheme();
 				} else {
@@ -131,15 +124,19 @@ public class Menu extends JFrame implements Themes{
 				}
 			}
 		});
+		
+		/* Adding all of the panels into the main pane and starting the program with the menu and home panel visibles */
 		contentPane.add(dynamicPanel);
 		contentPane.add(homePanel);
 		contentPane.add(menuPanel);
 		contentPane.add(showPeopPanel);
 		homePanel.setVisible(true);
 		menuPanel.setVisible(true);
+		showPeopPanel.setVisible(false);
 	}
 	
 	private void changePanel(JPanel pane) {
+		/* This method will change the panel depending on the panel needed by the interaction of the user with the menu buttons */
 		dynamicPanel.setVisible(false);
 		dynamicPanel = pane;
 		dynamicPanel.setVisible(true);
@@ -147,20 +144,28 @@ public class Menu extends JFrame implements Themes{
 	}
 	
 	private void changeToLightTheme() {
-		menuPanel.setBackground(darkTheme[0]);
-		dynamicPanel.setBackground(darkTheme[1]);
-		tglbtnTheme.setText("Light Theme");
-		tglbtnTheme.setBackground(Color.WHITE);
-		for(JButton btn : Data.btnArr) {btn.setForeground(lightTheme[1]);}
-		for(JLabel lbl : Data.lblArr) {lbl.setForeground(lightTheme[1]);}
+		/* This method will change the UI to the light theme */
+		tglbtnTheme.setText("Dark Theme");
+		try {
+			UIManager.setLookAndFeel(mintTheme);
+			SwingUtilities.updateComponentTreeUI(frame);
+			frame.pack();
+		} catch (UnsupportedLookAndFeelException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 	}
 	
 	private void changeToDarkTheme() {
-		menuPanel.setBackground(lightTheme[0]);
-		dynamicPanel.setBackground(lightTheme[1]);
-		tglbtnTheme.setText("Dark Theme");
-		tglbtnTheme.setBackground(Color.GRAY);
-		for(JLabel lbl : Data.lblArr) {lbl.setForeground(darkTheme[0]);}
-		for(JButton btn : Data.btnArr) {btn.setForeground(darkTheme[0]);}
+		/* This method will change the UI to the dark theme */
+		tglbtnTheme.setText("Light Theme");
+		try {
+			UIManager.setLookAndFeel(hiFiTheme);
+			SwingUtilities.updateComponentTreeUI(frame);
+			frame.pack();
+		} catch (UnsupportedLookAndFeelException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 	}
 }
