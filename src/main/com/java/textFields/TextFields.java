@@ -1,4 +1,4 @@
-package main.com.java.textFields;
+package main.com.java.textfields;
 
 import java.awt.Color;
 import java.awt.Font;

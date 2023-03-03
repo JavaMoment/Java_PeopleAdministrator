@@ -20,33 +20,34 @@ import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.SwingConstants;
 
-public class ShowPeoplePanel extends JPanel implements Themes {
-	private JTable tablePeople;
+public class ShowVehiclesPanel extends JPanel implements Themes {
+	private JTable vehiclesTable;
 	private JTextField textFieldSearch;
 
 	/**
 	 * Create the panel.
 	 */
-	public ShowPeoplePanel() {
+	public ShowVehiclesPanel() {
 		
 		/* Creates the panel for the showing of people uploaded into the program */
 
 		setBounds(269, 0, 739, 729);
 		setLayout(null);
 		
-		JScrollPane scrollPanePeopTable = new JScrollPane();
-		scrollPanePeopTable.setBounds(10, 120, 719, 598);
-		add(scrollPanePeopTable);
+		JScrollPane scrollPaneVehiclesPanel= new JScrollPane();
+		scrollPaneVehiclesPanel.setBounds(10, 120, 719, 598);
+		add(scrollPaneVehiclesPanel);
 		
-		tablePeople = new JTable();
-		scrollPanePeopTable.setViewportView(tablePeople);
-		tablePeople.setModel(new DefaultTableModel(
+		vehiclesTable = new JTable();
+		scrollPaneVehiclesPanel.setViewportView(vehiclesTable);
+		vehiclesTable.setModel(new DefaultTableModel(
 			new Object[][] {
-				{"1", "Gonza", "Ruiz", null},
-				{"2", "Juan", "Perez", null},
+				
+				{"1", "Mercedes", "Azul", 5, "7x5", "PEP GUARDIOLA"},
+
 			},
 			new String[] {
-				"ID", "Nombre", "Apellido", "Telefono"
+				"ID", "Nombre", "Color", "Cantida de pasajeros", "Meidadas (m)" ,"Dueño"
 			}
 		));
 		
@@ -60,7 +61,7 @@ public class ShowPeoplePanel extends JPanel implements Themes {
 		add(btnOrderDescBy);
 		add(Buttons.searchButton());
 		
-		tablePeople.getColumnModel().getColumn(0).setResizable(false);
+		vehiclesTable.getColumnModel().getColumn(0).setResizable(false);
 		
 		
 	}
