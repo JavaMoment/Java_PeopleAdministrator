@@ -10,7 +10,7 @@ import javax.swing.JTable;
 import main.com.java.buttons.Buttons;
 import main.com.java.interfaces.Themes;
 import main.com.java.tables.Tables;
-import main.com.java.textfields.*;
+import main.com.java.textFields.*;
 import main.resources.data.Data;
 
 import javax.swing.table.DefaultTableModel;

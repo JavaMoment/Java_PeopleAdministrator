@@ -27,7 +27,6 @@ public class Boat extends Vehicles {
 		this.beam = beam;
 	}
 	
-	
 	@Override
 	public String toString() {
 		return "Boat [lenght=" + lenght + ", beam=" + beam + "]";
