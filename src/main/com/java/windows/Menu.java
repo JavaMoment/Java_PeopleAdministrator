@@ -13,6 +13,7 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JToggleButton;
+import javax.swing.LookAndFeel;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
@@ -143,11 +144,10 @@ public class Menu extends JFrame implements Themes{
 		dynamicPanel.add(tglbtnTheme);
 	}
 	
-	private void changeToLightTheme() {
-		/* This method will change the UI to the light theme */
-		tglbtnTheme.setText("Dark Theme");
+	private void changeTheme(String theme, LookAndFeel look) {
+		tglbtnTheme.setText(theme);
 		try {
-			UIManager.setLookAndFeel(mintTheme);
+			UIManager.setLookAndFeel(look);
 			SwingUtilities.updateComponentTreeUI(frame);
 			frame.pack();
 		} catch (UnsupportedLookAndFeelException e1) {
@@ -156,16 +156,13 @@ public class Menu extends JFrame implements Themes{
 		}
 	}
 	
+	private void changeToLightTheme() {
+		/* This method will change the UI to the light theme */
+		changeTheme("Dark Theme", mintTheme);
+	}
+	
 	private void changeToDarkTheme() {
 		/* This method will change the UI to the dark theme */
-		tglbtnTheme.setText("Light Theme");
-		try {
-			UIManager.setLookAndFeel(hiFiTheme);
-			SwingUtilities.updateComponentTreeUI(frame);
-			frame.pack();
-		} catch (UnsupportedLookAndFeelException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
+		changeTheme("Light Theme", hiFiTheme);
 	}
 }
