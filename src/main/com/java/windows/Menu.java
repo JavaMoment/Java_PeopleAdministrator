@@ -27,6 +27,7 @@ import main.com.java.interfaces.Themes;
 import main.com.java.panels.HomePanel;
 import main.com.java.panels.MenuPanel;
 import main.com.java.panels.ShowPeoplePanel;
+import main.com.java.panels.ShowVehiclesPanel;
 import main.resources.data.Data;
 
 
@@ -37,6 +38,7 @@ public class Menu extends JFrame implements Themes{
 	private MenuPanel menuPanel;
 	private HomePanel homePanel;
 	private ShowPeoplePanel showPeopPanel;
+	private ShowVehiclesPanel showVehiclesPanel;
 	private JToggleButton tglbtnTheme = Buttons.themeButton();
 	private static Menu frame;
 	
@@ -80,6 +82,7 @@ public class Menu extends JFrame implements Themes{
 		menuPanel = new MenuPanel();
 		homePanel = new HomePanel();
 		showPeopPanel = new ShowPeoplePanel();
+		showVehiclesPanel = new ShowVehiclesPanel();
 
 		/* Starting the home panel as the initial panel */
 		dynamicPanel = homePanel;
@@ -106,6 +109,11 @@ public class Menu extends JFrame implements Themes{
 		
 		JButton btnShowVehicles = Buttons.showVehiclesButton();
 		menuPanel.add(btnShowVehicles);
+		btnShowVehicles.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				changePanel(showVehiclesPanel);
+							}
+		});
 		
 		JButton btnDashboard = Buttons.dashboardButton();
 		menuPanel.add(btnDashboard);
@@ -130,9 +138,11 @@ public class Menu extends JFrame implements Themes{
 		contentPane.add(homePanel);
 		contentPane.add(menuPanel);
 		contentPane.add(showPeopPanel);
+		contentPane.add(showVehiclesPanel);
 		homePanel.setVisible(true);
 		menuPanel.setVisible(true);
 		showPeopPanel.setVisible(false);
+		showVehiclesPanel.setVisible(false);
 	}
 	
 	private void changePanel(JPanel pane) {
