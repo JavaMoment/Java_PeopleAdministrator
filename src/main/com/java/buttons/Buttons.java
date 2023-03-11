@@ -14,12 +14,24 @@ import main.com.java.windows.Menu;
 import main.resources.data.Data;
 
 public class Buttons implements Themes {
+	//Icons locations:
+	private static String locShowVehiBtn = "/main/resources/images/icons/transporte.png";
+	private static String locShowPeopBtn = "/main/resources/images/icons/avatares.png";
+	private static String locAddPersBtn = "/main/resources/images/icons/avatar-de-hombre.png";
+	private static String locDashBtn = "/main/resources/images/icons/sitio-web.png";
+	private static String locHomeBtn = "C:\\PeopleAdministrator\\PeopleAdministrator\\src\\main\\resources\\images\\icons\\casa.png";
+	private static String locRefrBtn = "C:\\PeopleAdministrator\\PeopleAdministrator\\src\\main\\resources\\images\\icons\\refresh.png";
+	private static String locOrderByAscBtn = "C:\\PeopleAdministrator\\PeopleAdministrator\\src\\main\\resources\\images\\icons\\sort-ascending.png";
+	private static String locOrderByDescBtn = "C:\\PeopleAdministrator\\PeopleAdministrator\\src\\main\\resources\\images\\icons\\sort-descending.png";
+	private static String locSearchBtn = "C:\\PeopleAdministrator\\PeopleAdministrator\\src\\main\\resources\\images\\icons\\search.png";
+	
+	
 	/*
 	 * This class will contain all the buttons used by the frames and the panels
 	 **/
 	public static JButton showVehiclesButton() {
 		JButton btnShowVehicles = new JButton("Show vehicles");
-		btnShowVehicles.setIcon(new ImageIcon(Menu.class.getResource("/main/resources/images/transporte.png")));
+		btnShowVehicles.setIcon(new ImageIcon(Menu.class.getResource(locShowVehiBtn)));
 		btnShowVehicles.setHorizontalAlignment(SwingConstants.LEADING);
 		btnShowVehicles.setToolTipText("Click here to get a vehicles list");
 		btnShowVehicles.setOpaque(false);
@@ -31,7 +43,7 @@ public class Buttons implements Themes {
 	
 	public static JButton showPeopleButton() {
 		JButton btnShowPeople = new JButton("Show people");
-		btnShowPeople.setIcon(new ImageIcon(Menu.class.getResource("/main/resources/images/avatares.png")));
+		btnShowPeople.setIcon(new ImageIcon(Menu.class.getResource(locShowPeopBtn)));
 		btnShowPeople.setHorizontalAlignment(SwingConstants.LEADING);
 		btnShowPeople.setToolTipText("Click here to get a people list");
 		btnShowPeople.setOpaque(false);
@@ -43,7 +55,7 @@ public class Buttons implements Themes {
 	
 	public static JButton addPersonButton() {
 		JButton btnAddPerson = new JButton("Add a Person");
-		btnAddPerson.setIcon(new ImageIcon(Menu.class.getResource("/main/resources/images/avatar-de-hombre.png")));
+		btnAddPerson.setIcon(new ImageIcon(Menu.class.getResource(locAddPersBtn)));
 		btnAddPerson.setHorizontalAlignment(SwingConstants.LEADING);
 		btnAddPerson.setToolTipText("Click here to add a Person");
 		btnAddPerson.setOpaque(false);
@@ -55,7 +67,7 @@ public class Buttons implements Themes {
 	
 	public static JButton dashboardButton() {
 		JButton btnDashboard = new JButton("Dashboard");
-		btnDashboard.setIcon(new ImageIcon(Menu.class.getResource("/main/resources/images/sitio-web.png")));
+		btnDashboard.setIcon(new ImageIcon(Menu.class.getResource(locDashBtn)));
 		btnDashboard.setHorizontalAlignment(SwingConstants.LEADING);
 		btnDashboard.setToolTipText("Click here to get the dashboard");
 		btnDashboard.setOpaque(false);
@@ -67,7 +79,7 @@ public class Buttons implements Themes {
 	
 	public static JButton homeButton() {
 		JButton btnHome = new JButton("Home");
-		btnHome.setIcon(new ImageIcon("C:\\PeopleAdministrator\\PeopleAdministrator\\src\\main\\resources\\images\\casa.png"));
+		btnHome.setIcon(new ImageIcon(locHomeBtn));
 		btnHome.setHorizontalAlignment(SwingConstants.LEADING);
 		btnHome.setToolTipText("Click here to get Home");
 		btnHome.setBorderPainted(false);
@@ -80,7 +92,6 @@ public class Buttons implements Themes {
 	public static JToggleButton themeButton() {
 		JToggleButton tglbtnTheme = new JToggleButton("Light Theme");
 		tglbtnTheme.setOpaque(true);
-		//tglbtnTheme.setText("Light Theme");
 		tglbtnTheme.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		tglbtnTheme.setBorder(new CompoundBorder());
 		tglbtnTheme.setBounds(635, 11, 94, 23);
@@ -90,7 +101,7 @@ public class Buttons implements Themes {
 	
 	public static JButton refreshButton() {
 		JButton btnRefresh = new JButton();
-		btnRefresh.setIcon(new ImageIcon("C:\\PeopleAdministrator\\PeopleAdministrator\\src\\main\\resources\\images\\refresh.png"));
+		btnRefresh.setIcon(new ImageIcon(locRefrBtn));
 		btnRefresh.setToolTipText("Click here to refresh the table");
 		btnRefresh.setBounds(560, 11, 45, 40);
 		btnRefresh.setOpaque(false);
@@ -101,7 +112,7 @@ public class Buttons implements Themes {
 	
 	public static JButton orderByAscButton() {
 		JButton btnOrderByAscID = new JButton();
-		btnOrderByAscID.setIcon(new ImageIcon("C:\\PeopleAdministrator\\PeopleAdministrator\\src\\main\\resources\\images\\sort-ascending.png"));
+		btnOrderByAscID.setIcon(new ImageIcon(locOrderByAscBtn));
 		btnOrderByAscID.setBounds(460, 11, 45, 40);
 		btnOrderByAscID.setOpaque(false);
 		btnOrderByAscID.setBorderPainted(false);
@@ -111,7 +122,7 @@ public class Buttons implements Themes {
 	
 	public static JButton orderByDescButton() {
 		JButton btnOrderByDescID = new JButton();
-		btnOrderByDescID.setIcon(new ImageIcon("C:\\PeopleAdministrator\\PeopleAdministrator\\src\\main\\resources\\images\\sort-descending.png"));
+		btnOrderByDescID.setIcon(new ImageIcon(locOrderByDescBtn));
 		btnOrderByDescID.setBounds(510, 11, 45, 40);
 		btnOrderByDescID.setOpaque(false);
 		btnOrderByDescID.setBorderPainted(false);
@@ -121,7 +132,7 @@ public class Buttons implements Themes {
 	
 	public static JButton searchButton() {
 		JButton btnSearch = new JButton();
-		btnSearch.setIcon(new ImageIcon("C:\\PeopleAdministrator\\PeopleAdministrator\\src\\main\\resources\\images\\search.png"));
+		btnSearch.setIcon(new ImageIcon(locSearchBtn));
 		btnSearch.setToolTipText("Click here to search by name");
 		btnSearch.setBounds(210, 11, 45, 40);
 		btnSearch.setOpaque(false);

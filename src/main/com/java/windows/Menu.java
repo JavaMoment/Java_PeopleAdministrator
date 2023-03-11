@@ -28,8 +28,14 @@ import main.com.java.interfaces.Themes;
 import main.com.java.panels.HomePanel;
 import main.com.java.panels.MenuPanel;
 import main.com.java.panels.ShowPeoplePanel;
+<<<<<<< Updated upstream
 import main.com.java.panels.ShowVehiclesPanel;
+=======
+import main.com.java.windows.forms.BoatForm;
+>>>>>>> Stashed changes
 import main.resources.data.Data;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 
 public class Menu extends JFrame implements Themes{
@@ -99,6 +105,12 @@ public class Menu extends JFrame implements Themes{
 		
 		JButton btnAddPerson = Buttons.addPersonButton();
 		menuPanel.add(btnAddPerson);
+		btnAddPerson.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				BoatForm bf = new BoatForm();
+				bf.setVisible(true);
+							}
+		});
 		
 		JButton btnShowPeople = Buttons.showPeopleButton();
 		menuPanel.add(btnShowPeople);
@@ -107,7 +119,7 @@ public class Menu extends JFrame implements Themes{
 				changePanel(showPeopPanel);
 							}
 		});
-		
+				
 		JButton btnShowVehicles = Buttons.showVehiclesButton();
 		menuPanel.add(btnShowVehicles);
 		btnShowVehicles.addActionListener(new ActionListener() {
