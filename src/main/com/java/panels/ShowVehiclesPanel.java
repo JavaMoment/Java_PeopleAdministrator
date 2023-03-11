@@ -1,25 +1,18 @@
 package main.com.java.panels;
 
-import java.awt.Color;
-import java.awt.Font;
-
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTable;
 
 import main.com.java.buttons.Buttons;
 import main.com.java.interfaces.Themes;
-import main.com.java.tables.Tables;
 import main.com.java.textFields.*;
-import main.resources.data.Data;
 
 import javax.swing.table.DefaultTableModel;
-import javax.swing.border.EmptyBorder;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 import javax.swing.JButton;
-import javax.swing.SwingConstants;
 
+@SuppressWarnings("serial")
 public class ShowVehiclesPanel extends JPanel implements Themes {
 	private JTable vehiclesTable;
 	private JTextField textFieldSearch;

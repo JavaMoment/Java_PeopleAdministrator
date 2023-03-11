@@ -16,6 +16,7 @@ import javax.swing.border.EmptyBorder;
 import main.com.java.buttons.Buttons;
 import main.com.java.interfaces.Themes;
 
+@SuppressWarnings("serial")
 public class AbstractWindows extends JFrame implements Themes {
 
 	public static JToggleButton tglbtnTheme = Buttons.themeButton();

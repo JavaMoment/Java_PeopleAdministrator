@@ -1,7 +1,6 @@
 package main.com.java.buttons;
 
 import java.awt.Font;
-import java.net.URL;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;

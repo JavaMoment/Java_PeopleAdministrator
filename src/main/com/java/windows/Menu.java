@@ -4,37 +4,27 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import java.awt.Dimension;
 import javax.swing.JLabel;
-import javax.swing.SwingUtilities;
 
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import javax.swing.JToggleButton;
-import javax.swing.LookAndFeel;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import main.com.java.buttons.Buttons;
 import main.com.java.labels.Labels;
-import main.com.java.interfaces.Themes;
 import main.com.java.panels.HomePanel;
 import main.com.java.panels.MenuPanel;
 import main.com.java.panels.ShowPeoplePanel;
 import main.com.java.panels.ShowVehiclesPanel;
 import main.com.java.windows.forms.BoatForm;
-import main.resources.data.Data;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
 
 
+@SuppressWarnings("serial")
 public class Menu extends AbstractWindows {
 
 	private JPanel dynamicPanel;

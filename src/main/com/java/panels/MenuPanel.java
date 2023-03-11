@@ -1,12 +1,11 @@
 package main.com.java.panels;
 
-import java.awt.Color;
 
 import javax.swing.JPanel;
 
 import main.com.java.interfaces.Themes;
-import main.resources.data.Data;
 
+@SuppressWarnings("serial")
 public class MenuPanel extends JPanel implements Themes {
 
 	/**

@@ -1,24 +1,10 @@
 package main.com.java.windows.forms;
 
-import java.awt.Dimension;
-import java.awt.EventQueue;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
 import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.JToggleButton;
-import javax.swing.UIManager;
-import javax.swing.UnsupportedLookAndFeelException;
-import javax.swing.border.EmptyBorder;
 
-import main.com.java.buttons.Buttons;
-import main.com.java.interfaces.Themes;
 import main.com.java.windows.AbstractWindows;
-import main.com.java.windows.Menu;
 
+@SuppressWarnings("serial")
 public class BoatForm extends AbstractWindows {
 
 	private static int[] minDimension = {1024, 768};
