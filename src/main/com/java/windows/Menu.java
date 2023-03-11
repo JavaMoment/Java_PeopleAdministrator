@@ -28,11 +28,8 @@ import main.com.java.interfaces.Themes;
 import main.com.java.panels.HomePanel;
 import main.com.java.panels.MenuPanel;
 import main.com.java.panels.ShowPeoplePanel;
-<<<<<<< Updated upstream
 import main.com.java.panels.ShowVehiclesPanel;
-=======
 import main.com.java.windows.forms.BoatForm;
->>>>>>> Stashed changes
 import main.resources.data.Data;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
