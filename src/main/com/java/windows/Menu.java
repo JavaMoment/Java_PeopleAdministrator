@@ -89,8 +89,7 @@ public class Menu extends AbstractWindows {
 		menuPanel.add(btnAddPerson);
 		btnAddPerson.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				BoatForm bf = new BoatForm();
-				bf.setVisible(true);
+				
 							}
 		});
 		
