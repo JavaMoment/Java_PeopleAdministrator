@@ -22,6 +22,7 @@ import main.com.java.panels.MenuPanel;
 import main.com.java.panels.ShowPeoplePanel;
 import main.com.java.panels.ShowVehiclesPanel;
 import main.com.java.windows.forms.BoatForm;
+import java.awt.Toolkit;
 
 
 @SuppressWarnings("serial")
@@ -66,6 +67,8 @@ public class Menu extends AbstractWindows {
 	public Menu() {
 		
 		super(minDimension, maxDimension, title, closeOperation, bounds, panelBorders);
+		setIconImage(Toolkit.getDefaultToolkit().getImage(Menu.class.getResource("/main/resources/images/logos/uteclogo.png")));
+		setResizable(false);
 		
 		/* Creation of the panels used by the program */
 		menuPanel = new MenuPanel();
