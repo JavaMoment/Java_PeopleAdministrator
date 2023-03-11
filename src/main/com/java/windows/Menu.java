@@ -35,16 +35,19 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
 
-public class Menu extends JFrame implements Themes{
+public class Menu extends AbstractWindows {
 
-	private JPanel contentPane;
 	private JPanel dynamicPanel;
 	private MenuPanel menuPanel;
 	private HomePanel homePanel;
 	private ShowPeoplePanel showPeopPanel;
 	private ShowVehiclesPanel showVehiclesPanel;
-	private JToggleButton tglbtnTheme = Buttons.themeButton();
-	private static Menu frame;
+	private static int[] minDimension = {1024, 768};
+	private static int[] maxDimension = {1024, 768};
+	private static String title = "Home";
+	private static int closeOperation = JFrame.EXIT_ON_CLOSE;
+	private static int[] bounds = {100, 100, 622, 429};
+	private static int[] panelBorders = {5, 5, 5, 5};
 	
 	/**
 	 * Launch the application.
@@ -71,16 +74,8 @@ public class Menu extends JFrame implements Themes{
 	 * Create the frame.
 	 */
 	public Menu() {
-		setMaximumSize(new Dimension(1024, 768));
-		setMinimumSize(new Dimension(1024, 768));
-		setTitle("Home");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 622, 429);
-		contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-
-		setContentPane(contentPane);
-		contentPane.setLayout(null);
+		
+		super(minDimension, maxDimension, title, closeOperation, bounds, panelBorders);
 		
 		/* Creation of the panels used by the program */
 		menuPanel = new MenuPanel();
@@ -131,17 +126,6 @@ public class Menu extends JFrame implements Themes{
 		JLabel lblVersion = Labels.versionLabel();
 		menuPanel.add(lblVersion);
 
-				
-		tglbtnTheme.addActionListener(new ActionListener(){
-			public void actionPerformed(ActionEvent e) {
-				/* Logic for the selection of program themes between light and dark depending on the tglbtnTheme */
-				if(tglbtnTheme.isSelected()) {
-					changeToDarkTheme();
-				} else {
-					changeToLightTheme();
-				}
-			}
-		});
 		
 		/* Adding all of the panels into the main pane and starting the program with the menu and home panel visibles */
 		contentPane.add(dynamicPanel);
@@ -154,7 +138,7 @@ public class Menu extends JFrame implements Themes{
 		showPeopPanel.setVisible(false);
 		showVehiclesPanel.setVisible(false);
 	}
-	
+
 	private void changePanel(JPanel pane) {
 		/* This method will change the panel depending on the panel needed by the interaction of the user with the menu buttons */
 		dynamicPanel.setVisible(false);
@@ -163,25 +147,4 @@ public class Menu extends JFrame implements Themes{
 		dynamicPanel.add(tglbtnTheme);
 	}
 	
-	private void changeTheme(String theme, LookAndFeel look) {
-		tglbtnTheme.setText(theme);
-		try {
-			UIManager.setLookAndFeel(look);
-			SwingUtilities.updateComponentTreeUI(frame);
-			frame.pack();
-		} catch (UnsupportedLookAndFeelException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
-	}
-	
-	private void changeToLightTheme() {
-		/* This method will change the UI to the light theme */
-		changeTheme("Dark Theme", mintTheme);
-	}
-	
-	private void changeToDarkTheme() {
-		/* This method will change the UI to the dark theme */
-		changeTheme("Light Theme", hiFiTheme);
-	}
 }

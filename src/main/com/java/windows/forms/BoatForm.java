@@ -16,15 +16,11 @@ import javax.swing.border.EmptyBorder;
 
 import main.com.java.buttons.Buttons;
 import main.com.java.interfaces.Themes;
-import main.com.java.windows.AbstractFormsWindows;
+import main.com.java.windows.AbstractWindows;
 import main.com.java.windows.Menu;
 
-public class BoatForm extends AbstractFormsWindows {
+public class BoatForm extends AbstractWindows {
 
-	private JToggleButton tglbtnTheme = Buttons.themeButton();
-	private static BoatForm frame;
-	//private static int[] maxDimension;
-	private JPanel contentPane;
 	private static int[] minDimension = {1024, 768};
 	private static int[] maxDimension = {1024, 768};
 	private static String title = "Boat Form";
@@ -34,7 +30,9 @@ public class BoatForm extends AbstractFormsWindows {
 
 
 	public BoatForm() {
+	
 		super(minDimension, maxDimension, title, closeOperation, bounds, panelBorders);
+		
 	}
 	
 }
