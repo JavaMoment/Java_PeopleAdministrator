@@ -1,6 +1,5 @@
 package main.com.java.labels;
 
-import java.awt.Color;
 import java.awt.Font;
 
 import javax.swing.ImageIcon;
@@ -10,6 +9,10 @@ import javax.swing.SwingConstants;
 import main.com.java.windows.Menu;
 
 public class Labels {
+	//Icons images locations:
+	private static String locPeopCount = "/main/resources/images/icons/ancestors.png";
+	private static String locVehiCount = "/main/resources/images/icons/transportation.png";
+	
 	/*
 	 * This class will contain all the labels used by the frames and the panels
 	 **/
@@ -44,7 +47,7 @@ public class Labels {
 	
 	public static JLabel peopleCount() {
 		JLabel lblPCount = new JLabel("0");
-		lblPCount.setIcon(new ImageIcon(Menu.class.getResource("/main/resources/images/ancestors.png")));
+		lblPCount.setIcon(new ImageIcon(Menu.class.getResource(locPeopCount)));
 		lblPCount.setFont(new Font("Unispace", Font.BOLD, 14));
 		lblPCount.setHorizontalAlignment(SwingConstants.CENTER);
 		lblPCount.setBounds(636, 683, 46, 28);
@@ -53,7 +56,7 @@ public class Labels {
 	
 	public static JLabel vehiCount() {
 		JLabel lblVCount = new JLabel("0");
-		lblVCount.setIcon(new ImageIcon(Menu.class.getResource("/main/resources/images/transportation.png")));
+		lblVCount.setIcon(new ImageIcon(Menu.class.getResource(locVehiCount)));
 		lblVCount.setFont(new Font("Unispace", Font.BOLD, 14));
 		lblVCount.setHorizontalAlignment(SwingConstants.CENTER);
 		lblVCount.setBounds(540, 682, 46, 28);

@@ -5,8 +5,8 @@ import javax.swing.JPanel;
 
 import main.com.java.interfaces.Themes;
 import main.com.java.labels.Labels;
-import main.resources.data.Data;
 
+@SuppressWarnings("serial")
 public class HomePanel extends JPanel implements Themes {
 
 	/**
