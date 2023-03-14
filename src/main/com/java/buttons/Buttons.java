@@ -1,6 +1,5 @@
 package main.com.java.buttons;
 
-import java.awt.Color;
 import java.awt.Font;
 
 import javax.swing.ImageIcon;
@@ -9,91 +8,134 @@ import javax.swing.JToggleButton;
 import javax.swing.SwingConstants;
 import javax.swing.border.CompoundBorder;
 
-import main.com.java.windows.Menu;
+import main.com.java.interfaces.Themes;
 
-public class Buttons {
+public class Buttons implements Themes {
+	
+	//Icons locations:
+	private static final String locShowVehiBtn = "/main/resources/images/icons/transporte.png";
+	private static final String locShowPeopBtn = "/main/resources/images/icons/avatares.png";
+	private static final String locAddPersBtn = "/main/resources/images/icons/avatar-de-hombre.png";
+	private static final String locDashBtn = "/main/resources/images/icons/sitio-web.png";
+	private static final String locHomeBtn = "/main/resources/images/icons/casa.png";
+	private static final String locRefrBtn = "/main/resources/images/icons/refresh.png";
+	private static final String locOrderByAscBtn = "/main/resources/images/icons/sort-ascending.png";
+	private static final String locOrderByDescBtn = "/main/resources/images/icons/sort-descending.png";
+	private static final String locSearchBtn = "/main/resources/images/icons/search.png";
+
 	/*
 	 * This class will contain all the buttons used by the frames and the panels
 	 **/
 	public static JButton showVehiclesButton() {
 		JButton btnShowVehicles = new JButton("Show vehicles");
-		btnShowVehicles.setIcon(new ImageIcon(Menu.class.getResource("/main/resources/images/transporte.png")));
+		btnShowVehicles.setIcon(new ImageIcon(Buttons.class.getResource(locShowVehiBtn)));
 		btnShowVehicles.setHorizontalAlignment(SwingConstants.LEADING);
 		btnShowVehicles.setToolTipText("Click here to get a vehicles list");
 		btnShowVehicles.setOpaque(false);
-		btnShowVehicles.setForeground(Color.WHITE);
 		btnShowVehicles.setFont(new Font("Trebuchet MS", Font.BOLD | Font.ITALIC, 21));
 		btnShowVehicles.setBorderPainted(false);
-		btnShowVehicles.setBackground(Color.BLACK);
 		btnShowVehicles.setBounds(45, 441, 230, 35);
 		return btnShowVehicles;
 	}
 	
 	public static JButton showPeopleButton() {
 		JButton btnShowPeople = new JButton("Show people");
-		btnShowPeople.setIcon(new ImageIcon(Menu.class.getResource("/main/resources/images/avatares.png")));
+		btnShowPeople.setIcon(new ImageIcon(Buttons.class.getResource(locShowPeopBtn)));
 		btnShowPeople.setHorizontalAlignment(SwingConstants.LEADING);
 		btnShowPeople.setToolTipText("Click here to get a people list");
 		btnShowPeople.setOpaque(false);
-		btnShowPeople.setForeground(Color.WHITE);
 		btnShowPeople.setFont(new Font("Trebuchet MS", Font.BOLD | Font.ITALIC, 21));
 		btnShowPeople.setBorderPainted(false);
-		btnShowPeople.setBackground(Color.BLACK);
 		btnShowPeople.setBounds(45, 381, 230, 35);
 		return btnShowPeople;
 	}
 	
 	public static JButton addPersonButton() {
 		JButton btnAddPerson = new JButton("Add a Person");
-		btnAddPerson.setIcon(new ImageIcon(Menu.class.getResource("/main/resources/images/avatar-de-hombre.png")));
+		btnAddPerson.setIcon(new ImageIcon(Buttons.class.getResource(locAddPersBtn)));
 		btnAddPerson.setHorizontalAlignment(SwingConstants.LEADING);
 		btnAddPerson.setToolTipText("Click here to add a Person");
 		btnAddPerson.setOpaque(false);
-		btnAddPerson.setForeground(Color.WHITE);
 		btnAddPerson.setFont(new Font("Trebuchet MS", Font.BOLD | Font.ITALIC, 21));
 		btnAddPerson.setBorderPainted(false);
-		btnAddPerson.setBackground(Color.BLACK);
 		btnAddPerson.setBounds(45, 321, 230, 35);
 		return btnAddPerson;
 	}
 	
 	public static JButton dashboardButton() {
 		JButton btnDashboard = new JButton("Dashboard");
-		btnDashboard.setIcon(new ImageIcon(Menu.class.getResource("/main/resources/images/sitio-web.png")));
+		btnDashboard.setIcon(new ImageIcon(Buttons.class.getResource(locDashBtn)));
 		btnDashboard.setHorizontalAlignment(SwingConstants.LEADING);
 		btnDashboard.setToolTipText("Click here to get the dashboard");
 		btnDashboard.setOpaque(false);
-		btnDashboard.setForeground(Color.WHITE);
 		btnDashboard.setFont(new Font("Trebuchet MS", Font.BOLD | Font.ITALIC, 21));
 		btnDashboard.setBorderPainted(false);
-		btnDashboard.setBackground(Color.BLACK);
 		btnDashboard.setBounds(45, 503, 230, 35);
 		return btnDashboard;
 	}
 	
 	public static JButton homeButton() {
 		JButton btnHome = new JButton("Home");
-		btnHome.setIcon(new ImageIcon("C:\\PeopleAdministrator\\PeopleAdministrator\\src\\main\\resources\\images\\casa.png"));
+		btnHome.setIcon(new ImageIcon(Buttons.class.getResource(locHomeBtn)));
 		btnHome.setHorizontalAlignment(SwingConstants.LEADING);
 		btnHome.setToolTipText("Click here to get Home");
 		btnHome.setBorderPainted(false);
 		btnHome.setOpaque(false);
-		btnHome.setForeground(new Color(255, 255, 255));
 		btnHome.setFont(new Font("Trebuchet MS", Font.BOLD | Font.ITALIC, 21));
-		btnHome.setBackground(new Color(0, 0, 0));
 		btnHome.setBounds(45, 261, 230, 35);
 		return btnHome;
 	}
 	
 	public static JToggleButton themeButton() {
-		JToggleButton tglbtnTheme = new JToggleButton("Dark Theme");
+		JToggleButton tglbtnTheme = new JToggleButton("Light Theme");
 		tglbtnTheme.setOpaque(true);
-		tglbtnTheme.setBackground(new Color(128, 128, 128));
 		tglbtnTheme.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		tglbtnTheme.setForeground(new Color(0, 0, 0));
 		tglbtnTheme.setBorder(new CompoundBorder());
 		tglbtnTheme.setBounds(635, 11, 94, 23);
+		tglbtnTheme.setSelected(true);
 		return tglbtnTheme;
+	}
+	
+	public static JButton refreshButton() {
+		JButton btnRefresh = new JButton();
+		btnRefresh.setIcon(new ImageIcon(Buttons.class.getResource(locRefrBtn)));
+		btnRefresh.setToolTipText("Click here to refresh the table");
+		btnRefresh.setBounds(560, 11, 45, 40);
+		btnRefresh.setOpaque(false);
+		btnRefresh.setBorderPainted(false);
+		btnRefresh.setHorizontalAlignment(SwingConstants.LEADING);
+		return btnRefresh;
+	}
+	
+	public static JButton orderByAscButton() {
+		JButton btnOrderByAscID = new JButton();
+		btnOrderByAscID.setIcon(new ImageIcon(Buttons.class.getResource(locOrderByAscBtn)));
+		btnOrderByAscID.setBounds(460, 11, 45, 40);
+		btnOrderByAscID.setOpaque(false);
+		btnOrderByAscID.setBorderPainted(false);
+		btnOrderByAscID.setHorizontalAlignment(SwingConstants.LEFT);
+		return btnOrderByAscID;
+	}
+	
+	public static JButton orderByDescButton() {
+		JButton btnOrderByDescID = new JButton();
+		btnOrderByDescID.setIcon(new ImageIcon(Buttons.class.getResource(locOrderByDescBtn)));
+		btnOrderByDescID.setBounds(510, 11, 45, 40);
+		btnOrderByDescID.setOpaque(false);
+		btnOrderByDescID.setBorderPainted(false);
+		btnOrderByDescID.setHorizontalAlignment(SwingConstants.LEFT);
+		return btnOrderByDescID;
+	}
+	
+	public static JButton searchButton() {
+		JButton btnSearch = new JButton();
+		btnSearch.setIcon(new ImageIcon(Buttons.class.getResource(locSearchBtn)));
+		btnSearch.setToolTipText("Click here to search by name");
+		btnSearch.setBounds(210, 11, 45, 40);
+		btnSearch.setOpaque(false);
+		btnSearch.setBorderPainted(false);
+		btnSearch.setHorizontalAlignment(SwingConstants.LEADING);
+		return btnSearch;
 	}
 
 }

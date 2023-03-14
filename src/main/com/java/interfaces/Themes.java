@@ -1,11 +1,15 @@
 package main.com.java.interfaces;
 
-import java.awt.Color;
+import javax.swing.LookAndFeel;
+
+import com.jtattoo.plaf.hifi.HiFiLookAndFeel;
+import com.jtattoo.plaf.mint.MintLookAndFeel;
 
 public interface Themes {
-
-	public static final Color[] darkTheme = {new Color(0, 0, 0), new Color(18, 18, 18)};
+	/* This interface contains the Look and Feel themes used by the program */
 	
-	public static final Color[] lightTheme = {new Color(128, 255, 255), new Color(255, 255, 255)};
+	public static final LookAndFeel hiFiTheme = new HiFiLookAndFeel();
+	
+	public static final LookAndFeel mintTheme = new MintLookAndFeel();
 	
 }
