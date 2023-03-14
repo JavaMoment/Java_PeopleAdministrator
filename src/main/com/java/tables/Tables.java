@@ -1,7 +1,5 @@
 package main.com.java.tables;
 
-import java.awt.Color;
-
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
