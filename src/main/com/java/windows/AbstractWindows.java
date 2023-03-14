@@ -27,6 +27,7 @@ public abstract class AbstractWindows extends JFrame implements Themes {
 								String title, int closeOp, 
 								int[] bounds, int[] panelBorders) {
 		
+		/* Encapsulation of the windows constructors logic */
 		setMaximumSize(new Dimension(minDim[0], minDim[1]));
 		setMinimumSize(new Dimension(maxDim[0], maxDim[1]));
 		setTitle(title);
