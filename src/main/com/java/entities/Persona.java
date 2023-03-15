@@ -13,7 +13,7 @@ public class Persona {
 	public Persona (String nombre, String apellido, String dptoResidencia,
 					byte cantHijos, LinkedList<Vehicles> listaVehiculo) {
 		
-		this.idPersona++;
+		Persona.idPersona++;
 		this.nombre = nombre;
 		this.apellido = apellido;
 		this.dptoResidencia = dptoResidencia;
@@ -21,12 +21,54 @@ public class Persona {
 		this.listaVehiculo = listaVehiculo;
 	
 	}
+		
 	
-	public void setIdPersona(int id) {
-		this.idPersona = id;
+	public static void setIdPersona(int idPersona) {
+		Persona.idPersona = idPersona;
 	}
-	
+
+
 	public int getIdPersona() {
-		return this.idPersona;
+		return idPersona;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public String getApellido() {
+		return apellido;
+	}
+
+	public void setApellido(String apellido) {
+		this.apellido = apellido;
+	}
+
+	public String getDptoResidencia() {
+		return dptoResidencia;
+	}
+
+	public void setDptoResidencia(String dptoResidencia) {
+		this.dptoResidencia = dptoResidencia;
+	}
+
+	public byte getCantHijos() {
+		return cantHijos;
+	}
+
+	public void setCantHijos(byte cantHijos) {
+		this.cantHijos = cantHijos;
+	}
+
+	public LinkedList<Vehicles> getListaVehiculo() {
+		return listaVehiculo;
+	}
+
+	public void setListaVehiculo(LinkedList<Vehicles> listaVehiculo) {
+		this.listaVehiculo = listaVehiculo;
 	}
 }
