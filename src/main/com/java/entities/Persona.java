@@ -3,7 +3,7 @@ package main.com.java.entities;
 import java.util.LinkedList;
 
 public class Persona {
-	private static byte idCount;
+	private static byte idCount; // This will be our id auto increment
 	private byte idPersona;
 	private String nombre; 
 	private String apellido;
