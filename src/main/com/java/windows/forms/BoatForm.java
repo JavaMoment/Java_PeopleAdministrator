@@ -2,12 +2,17 @@ package main.com.java.windows.forms;
 
 import javax.swing.JFrame;
 
+import main.com.java.entities.Boat;
+import main.com.java.labels.Labels;
+import main.com.java.textFields.TextFields;
 import main.com.java.windows.AbstractWindows;
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
 import javax.swing.SwingConstants;
 import javax.swing.JTextField;
 import java.awt.Font;
+import java.awt.Rectangle;
+
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -22,89 +27,94 @@ public class BoatForm extends AbstractWindows {
 	private static int closeOperation = JFrame.DISPOSE_ON_CLOSE;
 	private static int[] bounds = {100, 100, 622, 429};
 	private static int[] panelBorders = {5, 5, 5, 5};
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_3;
+	private int[] lblWidthMBounds = {275, 283, 24, 14};
+	private String lblWidthLengthTxt = "m";
+	private int[]lblLengthMBounds = {275, 233, 24, 14};
+	private String lblNameTxt = "Name";
+	private int[] lblNameBounds= {10, 128, 74, 14};
+	private String lblColorTxt = "Color";
+	private int[] lblColorBounds = {10, 180, 73, 14};
+	private String lblLengthTxt = "Length";
+	private int[] lblLengthBounds = {10, 230, 74, 17};
+	private String lblWidthTxt = "Width";
+	private int[] lblWidthBounds = {10, 280, 74, 14};
+	private JTextField txtFieldName;
+	private JTextField txtFieldColor;
+	private JTextField txtFieldLength;
+	private JTextField txtFieldWidth;
 	private JLabel lblWidthM;
 	private JLabel lblLengthM;
 	private JLabel lblName;
 	private JLabel lblColor;
 	private JLabel lblLength;
-	private JLabel lblNewLabel_6;
-
+	private JLabel lblWidth;
+	private int[] textFieldsYPos = {127, 177, 227, 277};
 
 	public BoatForm() {
 	
 		super(minDimension, maxDimension, title, closeOperation, bounds, panelBorders);
-		setIconImage(Toolkit.getDefaultToolkit().getImage(BoatForm.class.getResource("/main/resources/images/logos/uteclogo.png")));
-		getContentPane().setLayout(null);
 		
-		JLabel shipLogo = new JLabel("");
-		shipLogo.setHorizontalAlignment(SwingConstants.CENTER);
-		shipLogo.setIcon(new ImageIcon(BoatForm.class.getResource("/main/resources/images/logos/ship.png")));
-		shipLogo.setBounds(295, 65, 290, 296);
+		JLabel shipLogo = Labels.shipLogo();
 		getContentPane().add(shipLogo);
 		
-		textField = new JTextField();
-		textField.setBounds(86, 127, 187, 20);
-		getContentPane().add(textField);
-		textField.setColumns(10);
+		txtFieldName = TextFields.boatFormTextFields(textFieldsYPos[0]);
+		getContentPane().add(txtFieldName);
 		
-		JLabel lblFormTitle = new JLabel("Ship Form");
-		lblFormTitle.setFont(new Font("Verdana", Font.BOLD | Font.ITALIC, 40));
-		lblFormTitle.setHorizontalAlignment(SwingConstants.CENTER);
-		lblFormTitle.setBounds(31, 11, 280, 61);
+		JLabel lblFormTitle = Labels.boatFormTitle();
 		getContentPane().add(lblFormTitle);
 		
-		textField_1 = new JTextField();
-		textField_1.setColumns(10);
-		textField_1.setBounds(86, 177, 187, 20);
-		getContentPane().add(textField_1);
+		txtFieldColor = TextFields.boatFormTextFields(textFieldsYPos[1]);
+		getContentPane().add(txtFieldColor);
 		
-		textField_2 = new JTextField();
-		textField_2.setColumns(10);
-		textField_2.setBounds(86, 227, 187, 20);
-		getContentPane().add(textField_2);
+		txtFieldLength = TextFields.boatFormTextFields(textFieldsYPos[2]);
+		getContentPane().add(txtFieldLength);
 		
-		textField_3 = new JTextField();
-		textField_3.setColumns(10);
-		textField_3.setBounds(86, 277, 187, 20);
-		getContentPane().add(textField_3);
+		txtFieldWidth = TextFields.boatFormTextFields(textFieldsYPos[3]);
+		getContentPane().add(txtFieldWidth);
 		
-		lblWidthM = new JLabel("m");
-		lblWidthM.setFont(new Font("Verdana", Font.BOLD, 15));
-		lblWidthM.setBounds(275, 283, 24, 14);
+		lblWidthM = Labels.boatFormTextFieldsLabels(lblWidthLengthTxt, lblWidthMBounds);
 		getContentPane().add(lblWidthM);
 		
-		lblLengthM = new JLabel("m");
-		lblLengthM.setFont(new Font("Verdana", Font.BOLD, 15));
-		lblLengthM.setBounds(275, 233, 24, 14);
+		lblLengthM = Labels.boatFormTextFieldsLabels(lblWidthLengthTxt, lblLengthMBounds);
 		getContentPane().add(lblLengthM);
 		
-		lblName = new JLabel("Name");
-		lblName.setFont(new Font("Verdana", Font.BOLD, 15));
-		lblName.setBounds(10, 128, 74, 14);
+		lblName = Labels.boatFormTextFieldsLabels(lblNameTxt, lblNameBounds);
 		getContentPane().add(lblName);
 		
-		lblColor = new JLabel("Color");
-		lblColor.setFont(new Font("Verdana", Font.BOLD, 15));
-		lblColor.setBounds(10, 180, 73, 14);
+		lblColor = Labels.boatFormTextFieldsLabels(lblColorTxt, lblColorBounds);
 		getContentPane().add(lblColor);
 		
-		lblLength = new JLabel("Length");
-		lblLength.setFont(new Font("Verdana", Font.BOLD, 15));
-		lblLength.setBounds(10, 230, 74, 17);
+		lblLength = Labels.boatFormTextFieldsLabels(lblLengthTxt, lblLengthBounds);
 		getContentPane().add(lblLength);
 		
-		lblNewLabel_6 = new JLabel("Width");
-		lblNewLabel_6.setFont(new Font("Verdana", Font.BOLD, 15));
-		lblNewLabel_6.setBounds(10, 280, 74, 14);
-		getContentPane().add(lblNewLabel_6);
+		lblWidth = Labels.boatFormTextFieldsLabels(lblWidthTxt, lblWidthBounds);
+		getContentPane().add(lblWidth);
 		
 		JButton btnSubmit = new JButton("Submit");
 		btnSubmit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				// Grabbing the txtFields attributes
+				try {
+					String name = txtFieldName.getText();
+					String color = txtFieldName.getText();
+					double length = Double.parseDouble(txtFieldLength.getText());
+					double width = Double.parseDouble(txtFieldWidth.getText());
+					
+					// Vehicle instance for aggrupation of the grabbed data
+					Boat boat = new Boat(name, color, length, width);
+					System.out.println(boat);
+
+					// Send the data to the excel
+					// pass
+				} catch (NullPointerException NullPointExc) {
+					System.out.println("Pasaron cosas  malas");
+					NullPointExc.printStackTrace();
+				} finally {
+					txtFieldName.setText("");
+					txtFieldColor.setText("");
+					txtFieldLength.setText("");
+					txtFieldWidth.setText("");
+				}
 			}
 		});
 		btnSubmit.setBounds(86, 320, 187, 23);

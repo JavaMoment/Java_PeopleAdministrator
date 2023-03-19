@@ -1,16 +1,17 @@
 package main.com.java.entities;
 
 public class Vehicles {
-	private int id;
+	
+	private static byte idCount;
+	private byte idVehicle;
 	private String name;
 	private String color;
-	private int passengers;
 
-	public int getId() {
-		return id;
+	public byte getId() {
+		return idVehicle;
 	}
-	public void setId(int id) {
-		this.id = id;
+	public void setId(byte id) {
+		this.idVehicle = id;
 	}
 	
 	public String getNombre() {
@@ -27,23 +28,16 @@ public class Vehicles {
 		this.color = color;
 	}
 	
-	public int getPassengers(int passengers) {
-		return passengers;
-	}
-	public void setPassengers(int passengers) {
-		this.passengers = passengers;
-	}
-	
-	public Vehicles(int id, String nombre, String color, int passengers) {
-		this.id = id;
+	public Vehicles(String nombre, String color) {
+		Vehicles.idCount++;
+		this.idVehicle = idCount;
 		this.name = nombre;
 		this.color = color;
-		this.passengers = passengers;
 	}
 	
 	@Override
 	public String toString() {
-		return "Vehicles [id=" + id + ", name=" + name + ", color=" + color + " pasajeros=" + passengers + "]";
+		return "Vehicles [id=" + idVehicle + ", name=" + name + ", color=" + color + "]";
 	}
 	
 }
