@@ -21,15 +21,15 @@ public class Boat extends Vehicles {
 		this.beam = beam;
 	}
 
-	public Boat(int id, String nombre, String color, int passengers, double lenght, double beam) {
-		super(id, nombre, color, passengers);
+	public Boat(String name, String color, double lenght, double beam) {
+		super(name, color);
 		this.lenght = lenght;
 		this.beam = beam;
 	}
 	
 	@Override
 	public String toString() {
-		return "Boat [lenght=" + lenght + ", beam=" + beam + "]";
+		return "Boat ID: " + this.getId() + "[nombre= " + this.getNombre() + ", lenght=" + lenght + ", beam=" + beam + "]";
 	}
 	
 	

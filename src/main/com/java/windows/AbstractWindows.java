@@ -1,6 +1,7 @@
 package main.com.java.windows;
 
 import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -15,13 +16,14 @@ import javax.swing.border.EmptyBorder;
 
 import main.com.java.buttons.Buttons;
 import main.com.java.interfaces.Themes;
+import main.com.java.windows.forms.BoatForm;
 
 @SuppressWarnings("serial")
 public abstract class AbstractWindows extends JFrame implements Themes {
 
 	public static JToggleButton tglbtnTheme = Buttons.themeButton();
 	public static JFrame frame = new JFrame();
-	public static JPanel contentPane;
+	public JPanel contentPane;
 	
 	public AbstractWindows(int[] minDim, int[] maxDim,
 								String title, int closeOp, 
@@ -33,6 +35,7 @@ public abstract class AbstractWindows extends JFrame implements Themes {
 		setTitle(title);
 		setDefaultCloseOperation(closeOp);
 		setBounds(bounds[0], bounds[1], bounds[2], bounds[3]);
+		setIconImage(Toolkit.getDefaultToolkit().getImage(BoatForm.class.getResource("/main/resources/images/logos/uteclogo.png")));
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(panelBorders[0], panelBorders[1], panelBorders[2], panelBorders[3]));
 
@@ -72,7 +75,9 @@ public abstract class AbstractWindows extends JFrame implements Themes {
 	}
 	
 	public void changeToDarkTheme() {
-		/* This method will change the UI to the dark theme */
+		/** 
+		 * This method will change the UI to the dark theme 
+		 * */
 		changeTheme("Light Theme", hiFiTheme);
 	}
 	

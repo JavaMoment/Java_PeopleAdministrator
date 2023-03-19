@@ -67,7 +67,6 @@ public class Menu extends AbstractWindows {
 	public Menu() {
 		
 		super(minDimension, maxDimension, title, closeOperation, bounds, panelBorders);
-		setIconImage(Toolkit.getDefaultToolkit().getImage(Menu.class.getResource("/main/resources/images/logos/uteclogo.png")));
 		setResizable(false);
 		
 		/* Creation of the panels used by the program */
@@ -92,7 +91,8 @@ public class Menu extends AbstractWindows {
 		menuPanel.add(btnAddPerson);
 		btnAddPerson.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				BoatForm bf = new BoatForm();
+				bf.setVisible(true);
 							}
 		});
 		

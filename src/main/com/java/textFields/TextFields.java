@@ -16,4 +16,11 @@ public class TextFields {
 		textFieldSearch.setColumns(10);
 		return textFieldSearch;
 	}
+	
+	public static JTextField boatFormTextFields(int yPos) {
+		JTextField jTxtField = new JTextField();
+		jTxtField.setColumns(10);
+		jTxtField.setBounds(86, yPos, 187, 20);
+		return jTxtField;
+	}
 }
