@@ -18,6 +18,7 @@ bin/
 !**/src/test/**/bin/
 jgoodies*
 JTattoo*
+!**/src/main/**/entities/Tests.java
 
 ### NetBeans ###
 /nbproject/private/
